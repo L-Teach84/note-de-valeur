@@ -40,14 +40,14 @@
 
         /* Position des 9 emplacements sur l'image principale */
         .slot:nth-child(1) { top: 90%; left: 55%; } /*Valeur en douane*/
-        .slot:nth-child(2) { top: 88%; left: 30%; } /*Valeur statistique*/
-        .slot:nth-child(3) { top: 10%; left: 50%; } /*Valeur 1ere destination*/
-        /* .slot:nth-child(4) { top: 40%; left: 10%; }
-        .slot:nth-child(5) { top: 80%; left: 0%; }
-        .slot:nth-child(6) { top: 80%; left: 15%; }
-        .slot:nth-child(7) { top: 80%; left: 30%; }
-        .slot:nth-child(8) { top: 10%; left: 55%; }
-        .slot:nth-child(9) { top: 90%; left: 55%; } */
+        .slot:nth-child(2) { top: 88%; left: 27%; } /*Valeur statistique*/
+        .slot:nth-child(3) { top: 10%; left: 55%; } /*Frontière UE*/
+        .slot:nth-child(4) { top: 45%; left: 20%; } /*Frontière FR*/
+        .slot:nth-child(5) { top: 45%; left: 80%; } /*Transp Ass hors UE*/
+        .slot:nth-child(6) { top: 76%; left: 12%; } /*Valeur 1ère desti*/
+        .slot:nth-child(7) { top: 56%; left: 41%; } /*Transport UE*/
+        .slot:nth-child(8) { top: 76%; left: 41%; } /*port de Genes*/
+        .slot:nth-child(9) { top: 59%; left: 15%; } /*Transport FR*/
 
         .side-images {
             display: grid;
@@ -86,47 +86,32 @@
 
         <!-- Images à déplacer -->
         <div class="side-images">
-            <div class="draggable" draggable="true" id="AssuranceFrance">
-                <img src="images/AssuranceFrance.jpg" alt="AssuranceFrance">
+            <div class="draggable" draggable="true" id="TranspAssFr">
+                <img src="images/TranspAssFr.jpg">
             </div>
-            <div class="draggable" draggable="true" id="AssuranceHorsUE">
-                <img src="images/AssuranceHorsUE.jpg" alt="AssuranceHorsUE">
-            </div>
-            <div class="draggable" draggable="true" id="AssuranceUE">
-                <img src="images/AssuranceUE.jpg" alt="AssuranceUE">
-            </div>
-            <div class="draggable" draggable="true" id="DéchargementFrance">
-                <img src="images/DéchargementFrance.jpg" alt="DéchargementFrance">
-            </div>
-            <div class="draggable" draggable="true" id="Destination">
-                <img src="images/Destination.jpg" alt="Destination">
+            <div class="draggable" draggable="true" id="TransAssUE">
+                <img src="images/TranspAssUE.jpg" >
             </div>
             <div class="draggable" draggable="true" id="FrontiereFR">
-                <img src="images/FrontiereFR.jpg" alt="FrontiereFR">
+                <img src="images/FrontiereFR.jpg" >
             </div>
             <div class="draggable" draggable="true" id="FrontiereUE">
-                <img src="images/FrontiereUE.jpg" alt="FrontiereUE">
+                <img src="images/FrontiereUE.jpg" >
             </div>
-            <div class="draggable" draggable="true" id="MiseAQuaiAeroportMunich">
-                <img src="images/MiseAQuaiAeroportMunich.jpg" alt="MiseAQuaiAeroportMunich">
-            </div>
-            <div class="draggable" draggable="true" id="TransportFrance">
-                <img src="images/TransportFrance.jpg" alt="TransportFrance">
-            </div>
-            <div class="draggable" draggable="true" id="TransportUE">
-                <img src="images/TransportUE.jpg" alt="TransportUE">
-            </div>
-            <div class="draggable" draggable="true" id="TrasnportHorsUE">
-                <img src="images/TrasnportHorsUE.jpg" alt="TrasnportHorsUE">
+            <div class="draggable" draggable="true" id="MiseAQuaiPortDeGenes">
+                <img src="images/MiseAQuaiPortDeGenes.jpg" >
             </div>
             <div class="draggable" draggable="true" id="Valeur1ereDestination">
-                <img src="images/Valeur1ereDestination.jpg" alt="Valeur1ereDestination">
+                <img src="images/Valeur1ereDestination.jpg" >
             </div>
             <div class="draggable" draggable="true" id="ValeurEnDouane">
-                <img src="images/ValeurEnDouane.jpg" alt="ValeurEnDouane">
+                <img src="images/ValeurEnDouane.jpg" >
             </div>
             <div class="draggable" draggable="true" id="ValeurStatistique">
-                <img src="images/ValeurStatistique.jpg" alt="ValeurStatistique">
+                <img src="images/ValeurStatistique.jpg" >
+            </div>
+            <div class="draggable" draggable="true" id="TranspAssortHorsUE">
+                <img src="images/TranspAsshorsUE.jpg">
             </div>
         </div>
     </div>
