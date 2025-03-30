@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note de Valeur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-image {
+            position: relative;
+            width: 55vw;
+            height: 95vh;
+            background: url('images/NoteDeValeur.jpg') no-repeat center center;
+            background-size: cover;
+            border: 2px solid #ccc;
+        }
+
+        .slot {
+            position: absolute;
+            width: 100px;
+            height: 60px;
+            border: 2px dashed #000;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Position des 9 emplacements sur l'image principale */
+        .slot:nth-child(1) { top: 90%; left: 55%; } /*Valeur en douane*/
+        .slot:nth-child(2) { top: 88%; left: 30%; } /*Valeur statistique*/
+        .slot:nth-child(3) { top: 10%; left: 50%; } /*Valeur 1ere destination*/
+        /* .slot:nth-child(4) { top: 40%; left: 10%; }
+        .slot:nth-child(5) { top: 80%; left: 0%; }
+        .slot:nth-child(6) { top: 80%; left: 15%; }
+        .slot:nth-child(7) { top: 80%; left: 30%; }
+        .slot:nth-child(8) { top: 10%; left: 55%; }
+        .slot:nth-child(9) { top: 90%; left: 55%; } */
+
+        .side-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 20px; /* Space between items */
+        }
+
+        .draggable {
+            width: 100px;
+            height: 60px;
+            border: 2px solid #000;
+            cursor: grab;
+        }
+
+        .draggable img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image principale avec les emplacements -->
+        <div class="main-image" id="mainImage">
+            <div class="slot" data-slot="1"></div>
+            <div class="slot" data-slot="2"></div>
+            <div class="slot" data-slot="3"></div>
+            <div class="slot" data-slot="4"></div>
+            <div class="slot" data-slot="5"></div>
+            <div class="slot" data-slot="6"></div>
+            <div class="slot" data-slot="7"></div>
+            <div class="slot" data-slot="8"></div>
+            <div class="slot" data-slot="9"></div>
+        </div>
+
+        <!-- Images à déplacer -->
+        <div class="side-images">
+            <div class="draggable" draggable="true" id="AssuranceFrance">
+                <img src="images/AssuranceFrance.jpg" alt="AssuranceFrance">
+            </div>
+            <div class="draggable" draggable="true" id="AssuranceHorsUE">
+                <img src="images/AssuranceHorsUE.jpg" alt="AssuranceHorsUE">
+            </div>
+            <div class="draggable" draggable="true" id="AssuranceUE">
+                <img src="images/AssuranceUE.jpg" alt="AssuranceUE">
+            </div>
+            <div class="draggable" draggable="true" id="DéchargementFrance">
+                <img src="images/DéchargementFrance.jpg" alt="DéchargementFrance">
+            </div>
+            <div class="draggable" draggable="true" id="Destination">
+                <img src="images/Destination.jpg" alt="Destination">
+            </div>
+            <div class="draggable" draggable="true" id="FrontiereFR">
+                <img src="images/FrontiereFR.jpg" alt="FrontiereFR">
+            </div>
+            <div class="draggable" draggable="true" id="FrontiereUE">
+                <img src="images/FrontiereUE.jpg" alt="FrontiereUE">
+            </div>
+            <div class="draggable" draggable="true" id="MiseAQuaiAeroportMunich">
+                <img src="images/MiseAQuaiAeroportMunich.jpg" alt="MiseAQuaiAeroportMunich">
+            </div>
+            <div class="draggable" draggable="true" id="TransportFrance">
+                <img src="images/TransportFrance.jpg" alt="TransportFrance">
+            </div>
+            <div class="draggable" draggable="true" id="TransportUE">
+                <img src="images/TransportUE.jpg" alt="TransportUE">
+            </div>
+            <div class="draggable" draggable="true" id="TrasnportHorsUE">
+                <img src="images/TrasnportHorsUE.jpg" alt="TrasnportHorsUE">
+            </div>
+            <div class="draggable" draggable="true" id="Valeur1ereDestination">
+                <img src="images/Valeur1ereDestination.jpg" alt="Valeur1ereDestination">
+            </div>
+            <div class="draggable" draggable="true" id="ValeurEnDouane">
+                <img src="images/ValeurEnDouane.jpg" alt="ValeurEnDouane">
+            </div>
+            <div class="draggable" draggable="true" id="ValeurStatistique">
+                <img src="images/ValeurStatistique.jpg" alt="ValeurStatistique">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const draggables = document.querySelectorAll('.draggable');
+        const slots = document.querySelectorAll('.slot');
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', draggable.id);
+            });
+        });
+
+        slots.forEach(slot => {
+            slot.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            slot.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const draggableId = e.dataTransfer.getData('text/plain');
+                const draggableElement = document.getElementById(draggableId);
+                if (!slot.hasChildNodes()) {
+                    slot.appendChild(draggableElement);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
